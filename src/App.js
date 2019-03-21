@@ -5,14 +5,15 @@ import { Provider as ReduxProvider } from "react-redux";
 import  {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import configureStore from "./modules/store";
 import Home from "./components/Home";
+import Weather from "./components/Weather";
 
 const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 
 const routing = (
   <Router>
     <Switch>
-      <Route exact="/" component={Home}/>
-      <Route component={Home}/>
+      <Route path exact="/" component={Home}/>
+      <Route path='/weather/:month/:day' component={Weather}/>
     </Switch>
   </Router>
 );

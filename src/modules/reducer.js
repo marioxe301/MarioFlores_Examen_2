@@ -2,7 +2,8 @@ import ACTIONS from "./action";
 import _ from "lodash";
 
 const defaultState = {
-  items: [{id:1, month:'March', day:'20', max: '38', min: '18'}, 
+  items: [
+  {id:1, month:'March', day:'20', max: '38', min: '18'}, 
   {id:2,month:'March', day:'21', max: '30', min: '20'}, 
   {id:3,month:'March', day:'22', max: '33', min: '17'}, 
   {id:4,month:'March', day:'23', max: '31', min: '19'}]
@@ -26,6 +27,15 @@ const todoReducer = (state = defaultState, action) => {
       let index = _.findIndex(newState.items, { id: action.payload });
       newState.items.splice(index, 1);
       return newState;
+    }
+
+    case ACTIONS.Types.WHEATHER_ITEM: {
+      let newState = _.cloneDeep(state);
+      console.log(action.payload);
+      let item = action.payload;
+
+      let obj = newState.items.filter(datos => (datos.month === item.mon && datos.day === item.day));
+      return obj;
     }
 
     default:

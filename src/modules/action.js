@@ -13,9 +13,15 @@ const Types = {
     type: Types.DELETE_ITEM,
     payload: id
   });
+
+  const weatherItem = (mon,day) =>({
+    type: Types.WHEATHER_ITEM,
+    payload : {mon,day}
+  })
   
   export default {
     createItem,
     deleteItem,
+    weatherItem,
     Types
   };

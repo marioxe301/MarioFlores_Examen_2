@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import  {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Link from "react-router-dom/Link";
+import Weather from "./Weather";
 
 
 class Home extends Component{
@@ -48,7 +49,7 @@ class Home extends Component{
             return(
             <div>
             <h1>{this.state.name2}</h1>
-            <h1>{this.state.name1}</h1> 
+            <h1>{this.state.name1}</h1>
             </div> 
         )
         }
@@ -76,6 +77,7 @@ class Home extends Component{
                             <br/>
                             <Link to="/weather/March/23">Weather for March 23</Link>
                     </div>
+
                 </form>
             </div>
         );
